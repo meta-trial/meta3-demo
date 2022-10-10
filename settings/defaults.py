@@ -1,4 +1,5 @@
 import os
+import pdb
 import sys
 from pathlib import Path
 
@@ -12,6 +13,7 @@ from .logging import LOGGING  # noqa
 
 BASE_DIR = str(Path(os.path.dirname(os.path.abspath(__file__))).parent)
 ENV_DIR = str(Path(os.path.dirname(os.path.abspath(__file__))).parent)
+
 
 env = environ.Env(
     AWS_ENABLED=(bool, False),
@@ -57,7 +59,7 @@ APP_NAME = env.str("DJANGO_APP_NAME")
 
 LIVE_SYSTEM = env.str("DJANGO_LIVE_SYSTEM")
 
-ETC_DIR = env.str("DJANGO_ETC_FOLDER")
+ETC_DIR = os.path.expanduser(env.str("DJANGO_ETC_FOLDER"))
 
 TEST_DIR = os.path.join(BASE_DIR, APP_NAME, "tests")
 
@@ -271,7 +273,9 @@ PASSWORD_HASHERS = [
 ]
 
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
         "OPTIONS": {"min_length": 20},
@@ -317,7 +321,9 @@ EDC_APPOINTMENT_APPT_REASON_CHOICES = (
 EXPORT_FILENAME_TIMESTAMP_FORMAT = "%Y%m%d"
 
 # django_revision
-with open(os.path.join(os.path.dirname(os.path.join(BASE_DIR, APP_NAME)), "VERSION")) as f:
+with open(
+    os.path.join(os.path.dirname(os.path.join(BASE_DIR, APP_NAME)), "VERSION")
+) as f:
     REVISION = f.read().strip()
 
 # EDC_AUTH_SKIP_AUTH_UPDATER = True
@@ -365,7 +371,9 @@ LAB_DASHBOARD_BASE_TEMPLATES = env.dict("DJANGO_LAB_DASHBOARD_BASE_TEMPLATES")
 LAB_DASHBOARD_URL_NAMES = env.dict("DJANGO_LAB_DASHBOARD_URL_NAMES")
 
 # edc-diagnosis
-EDC_DX_LABELS = dict(hiv="HIV", dm="Diabetes", htn="Hypertension", chol="High Cholesterol")
+EDC_DX_LABELS = dict(
+    hiv="HIV", dm="Diabetes", htn="Hypertension", chol="High Cholesterol"
+)
 
 # edc-egfr
 EDC_EGFR_DROP_NOTIFICATION_MODEL = "meta_subject.egfrdropnotification"
@@ -390,7 +398,7 @@ EDC_PROTOCOL_VIOLATION_TYPE = PROTOCOL_INCIDENT
 EDC_QOL_EQ5D3L_MODEL = "meta_subject.eq5d3l"
 
 # edc_randomization
-EDC_RANDOMIZATION_LIST_PATH = env.str("EDC_RANDOMIZATION_LIST_PATH")
+EDC_RANDOMIZATION_LIST_PATH = os.path.expanduser(env.str("EDC_RANDOMIZATION_LIST_PATH"))
 EDC_RANDOMIZATION_UNBLINDED_USERS = env.list("EDC_RANDOMIZATION_UNBLINDED_USERS")
 EDC_RANDOMIZATION_REGISTER_DEFAULT_RANDOMIZER = env(
     "EDC_RANDOMIZATION_REGISTER_DEFAULT_RANDOMIZER"
@@ -436,10 +444,10 @@ if TWILIO_ENABLED:
 GIT_DIR = BASE_DIR
 
 # django_crypto_fields
-KEY_PATH = env.str("DJANGO_KEY_FOLDER")
+KEY_PATH = os.path.expanduser(env.str("DJANGO_KEY_FOLDER"))
 AUTO_CREATE_KEYS = env("DJANGO_AUTO_CREATE_KEYS")
 
-EXPORT_FOLDER = env.str("DJANGO_EXPORT_FOLDER") or os.path.expanduser("~/")
+EXPORT_FOLDER = os.path.expanduser(env.str("DJANGO_EXPORT_FOLDER"))
 
 # django_simple_history
 SIMPLE_HISTORY_ENFORCE_HISTORY_MODEL_PERMISSIONS = True
@@ -478,7 +486,7 @@ EDC_PROTOCOL_STUDY_CLOSE_DATETIME = get_datetime_from_env(
 )
 EDC_PROTOCOL_TITLE = env.str("EDC_PROTOCOL_TITLE")
 
-DJANGO_LOG_FOLDER = env.str("DJANGO_LOG_FOLDER")
+LOG_FOLDER = os.path.expanduser(env.str("DJANGO_LOG_FOLDER"))
 
 # static
 if env("AWS_ENABLED"):
@@ -500,7 +508,7 @@ if env("AWS_ENABLED"):
     STATIC_ROOT = ""
 elif DEBUG:
     STATIC_URL = env.str("DJANGO_STATIC_URL")
-    STATIC_ROOT = os.path.expanduser("~/source/edc_source/meta-edc/static/")
+    STATIC_ROOT = os.path.expanduser("DJANGO_STATIC_ROOT")
 
 else:
     # run collectstatic, check nginx LOCATION

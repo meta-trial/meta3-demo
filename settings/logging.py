@@ -1,12 +1,16 @@
-# see http://www.simonkrueger.com/2015/05/27/logging-django-apps-to-syslog.html
 import os
+import pdb
+from pathlib import Path
 
 import environ
 
-env = environ.Env()
-env.read_env(".env")
+ENV_DIR = str(Path(os.path.dirname(os.path.abspath(__file__))).parent)
 
-LOG_FOLDER = env.str("DJANGO_LOG_FOLDER")
+env = environ.Env()
+env.read_env(os.path.join(ENV_DIR, ".env"))
+
+
+LOG_FOLDER = os.path.expanduser(env.str("DJANGO_LOG_FOLDER"))
 LOGGING_FILE_LEVEL = env.str("DJANGO_LOGGING_FILE_LEVEL")
 LOGGING_SYSLOG_LEVEL = env.str("DJANGO_LOGGING_SYSLOG_LEVEL")
 
