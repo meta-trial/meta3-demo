@@ -1,5 +1,21 @@
-# meta3-sample
+|pypi|
+
 Sample META3 project
+====================
+
+This is a demo project of the META3 clinical trial EDC.
+
+This demo sets up the EDC to run a test server in DEBUG mode on your local machine.
+
+These are not the installation steps for a production system.
+
+See also
+
+https://www.lstmed.ac.uk/research/departments/international-public-health/respond-africa/meta
+
+https://github.com/meta-trial/meta-edc
+
+https://github.com/clinicedc
 
 Installation
 ------------
@@ -103,5 +119,17 @@ Open your browser and point it to
 
   localhost:8000
 
-Go to your user account and edit the permissions on your account
+Go to your user account and edit the permissions on your account.
+You should NOT operate the EDC as a superuser.
 
+* Under the section **Personal Details**, fill in your name and email.
+* Under the section **Permissions**, uncheck *Superuser status*.
+* At the bottom of the **User Profile** section you will see `Roles`. Add yourself to the Roles:
+
+    * Account Manager
+    * Staff
+    * Clinician Super
+
+
+.. |pypi| image:: https://img.shields.io/pypi/v/meta3-sample.svg
+    :target: https://pypi.python.org/pypi/meta3-sample
