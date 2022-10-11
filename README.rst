@@ -36,16 +36,17 @@ Create a working folder and clone this sample repo
 
 .. code-block:: bash
 
-  mkdir -p ~/projects/
-  cd ~/projects
-  git clone https://github.com/meta-trial/meta3-sample.git
+  mkdir -p ~/projects/ && \
+  cd ~/projects && \
+  git clone https://github.com/meta-trial/meta3-sample.git && \
+  cd ~/projects/meta3-sample
 
 
 Create a conda env named "meta3_sample" and activate
 
 .. code-block:: bash
 
-  conda create -n meta3_sample python=3.10
+  conda create -n meta3_sample python=3.10 && \
   conda activate meta3_sample
 
 
@@ -59,8 +60,7 @@ Copy the .env file
 
 .. code-block:: bash
 
-
-    cd ~/projects && cp .env-sample .env
+    cd ~/projects/meta3-sample && cp .env-sample .env
 
 
 Edit the environment file (.env) to include your mysql password in the ``DATABASE_URL``.
@@ -75,7 +75,7 @@ Run manage.py for the first time to create the encryption keys
 
 .. code-block:: bash
 
-  cd ~/projects && python manage.py check
+  python manage.py check
 
 Go back and edit the environment file (.env). Change DJANGO_AUTO_CREATE_KEYS
 
@@ -83,25 +83,32 @@ Go back and edit the environment file (.env). Change DJANGO_AUTO_CREATE_KEYS
 
     DJANGO_AUTO_CREATE_KEYS=False
 
-Run migrate
+Run manage.py check again, you should see a final message "System check identified 3 issues (1 silenced)". For the test server, you may ignore these warnings.
+
+.. code-block:: bash
+
+  python manage.py check
+
+Now you are ready to prepare the database. This step takes a while.
 
 .. code-block:: bash
 
     python manage.py migrate
 
-Import a dummy randomization list
+Import the dummy randomization list. META3 is a randomized control trial.
 
 .. code-block:: bash
 
     python manage.py import_randomization_list
 
-Import a holidays for scheduling
+Import a holidays for scheduling.
 
 .. code-block:: bash
 
     python manage.py import_holidays
 
-Create a user
+Create a user. You will start as a superuser but once logged in you need
+to remove the superuser status.
 
 .. code-block:: bash
 
@@ -120,8 +127,10 @@ Open your browser and point it to
 
   localhost:8000
 
-Go to your user account and edit the permissions on your account.
-You should NOT operate the EDC as a superuser.
+You should see the login screen. Type in the credentials of the superuser you just created.
+
+Once logged in, go to your user account and edit the permissions on your account. You can use the link at the top right corner.
+Gagin, remeber, you should NOT operate the EDC as a superuser.
 
 * Under the section **Personal Details**, fill in your name and email.
 * Under the section **Permissions**, uncheck *Superuser status*.
@@ -131,6 +140,7 @@ You should NOT operate the EDC as a superuser.
     * Staff
     * Clinician Super
 
+Now you are ready to screen your first participant.
 
 .. |pypi| image:: https://img.shields.io/pypi/v/meta3-sample.svg
     :target: https://pypi.python.org/pypi/meta3-sample
