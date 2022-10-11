@@ -32,7 +32,7 @@ Create the database
 
 .. code-block:: bash
 
-  mysql -Bse 'create database meta_example character set utf8;'
+  mysql -Bse 'create database meta3_sample character set utf8;'
 
 
 Create a working folder and clone the repo
@@ -210,7 +210,7 @@ Removing the demo when you are done
 
 drop the database::
 
-  mysql -Bse "drop database meta3-sample;"
+  mysql -Bse "drop database meta3_sample;"
 
 deactivate the conda environment::
 
