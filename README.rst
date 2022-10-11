@@ -1,16 +1,16 @@
 |pypi|
 
 
-Sample META3 project
-====================
+META3 Demo Project
+==================
 
-This is a demo project of the META3 clinical trial EDC.
+This is a demo project of the EDC used by the META3 clinical trial.
 
-This demo sets up the EDC to run a test server in DEBUG mode on your local machine.
+This demo sets up the META3 EDC to run on the Django test server in DEBUG mode on your local machine.
 
 These are not the installation steps for a production system.
 
-See also
+See also:
 
 https://www.lstmed.ac.uk/research/departments/international-public-health/respond-africa/meta
 
@@ -21,9 +21,7 @@ https://github.com/clinicedc
 Installation
 ------------
 
-To setup and run a test server locally.
-
-You'll need mysql and conda.
+You'll need `mysql` and `conda`.
 
 Create the database
 
@@ -130,11 +128,10 @@ Open your browser and point it to
 You should see the login screen. Type in the credentials of the superuser you just created.
 
 Once logged in, go to your user account and edit the permissions on your account. You can use the link at the top right corner.
-Gagin, remeber, you should NOT operate the EDC as a superuser.
 
 * Under the section **Personal Details**, fill in your name and email.
 * Under the section **Permissions**, uncheck *Superuser status*.
-* At the bottom of the **User Profile** section you will see `Roles`. Add yourself to the Roles:
+* At the bottom of section **User Profile** you will see `Roles`. Add yourself to the following roles:
 
     * Account Manager
     * Staff
