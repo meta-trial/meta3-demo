@@ -165,7 +165,7 @@ Open your browser and point it to
 
   localhost:8000
 
-You should see the login screen.
+You should see the login screen for the META3_ trial running at `Temeke Hospital`_ in Tanzania.
 
 Type in the credentials of the ``superuser`` account you just created.
 
@@ -256,3 +256,5 @@ Finally, delete the `clinicedc` folder.
 .. _signals: https://docs.djangoproject.com/en/4.1/topics/signals/
 
 .. _createsuperuser: https://docs.djangoproject.com/en/4.1/ref/django-admin/#createsuperuser
+
+.. _Temeke Hospital: https://www.google.com/maps/dir/30.5463296,-97.6027648/temeke+hospital/@0.7551523,-115.5662203,3z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x185c4bef1f19f4a5:0xc9cebd42ac07b43!2m2!1d39.2629046!2d-6.8598127
