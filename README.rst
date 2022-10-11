@@ -41,7 +41,7 @@ Create a working folder and clone the repo
   git clone https://github.com/meta-trial/meta3-sample.git
 
 
-Create a conda environment named "meta3_sample" and activate
+Create a conda environment named "meta3_sample" and activate it
 
 .. code-block:: bash
 
@@ -104,9 +104,10 @@ Restore the sample data instead migrating from a clean database
 
 .. code-block:: bash
 
-    cd ~/project/meta3-sample/sample_data && \
-    tar xczf meta3_sample.sql.tar.gz && \
-    mysql met3_sample < meta3_sample.sql
+    cd ~/projects/meta3-sample/sample_data && \
+    tar xzf meta3_sample.sql.tar.gz && \
+    mysql meta3_sample < meta3_sample.sql && \
+    cd ~/projects/meta3-sample/
 
 Note
     Running `migrate` on an empty database takes more than 30 min. If you do try to run `migrate` instead of
