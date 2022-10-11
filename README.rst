@@ -25,7 +25,7 @@ https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinica
 Installation
 ------------
 
-You'll need setup ``mysql`` and ``miniconda`` on your local machine.
+You'll need to install ``mysql`` and ``miniconda`` on your local machine.
 
 Get miniconda here
     https://docs.conda.io/en/latest/miniconda.html
@@ -104,11 +104,15 @@ Now go back and edit the environment file (.env). Change ``DJANGO_AUTO_CREATE_KE
 
     DJANGO_AUTO_CREATE_KEYS=False
 
-Run manage.py check_ again. You should see a final message ``System check identified 3 issues (1 silenced)``. Since this is a test server, you may ignore these warnings.
+Run manage.py check_ again. 
 
 .. code-block:: bash
 
   python manage.py check
+
+
+You should see a final message ``System check identified 3 issues (1 silenced)``. Since this is a test server, you may ignore these warnings.  
+
 
 Now you are ready to prepare the database that you created earlier.
 
