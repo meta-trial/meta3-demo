@@ -32,7 +32,7 @@ Create the database
 
 .. code-block:: bash
 
-  mysql -Bse 'create database meta_example character set utf8;'
+  mysql -Bse 'create database meta3_demo character set utf8;'
 
 
 Create a working folder and clone the repo
@@ -41,7 +41,7 @@ Create a working folder and clone the repo
 
   mkdir ~/clinicedc && \
   cd ~/clinicedc && \
-  git clone https://github.com/meta-trial/meta3-sample.git
+  git clone https://github.com/meta-trial/meta3-demo.git
 
 
 Create a conda environment named "meta3_demo" and activate it
@@ -97,13 +97,13 @@ Run manage.py `check` again. You should see a final message "System check identi
 
 Now you are ready to prepare the database.
 
-For now we will just restore the sample data provided in this repo. (Of course, you may run `python manage.py migrate`
+For now we will just restore the demo data provided in this repo. (Of course, you may run `python manage.py migrate`
 but see the note below before going that route.)
 
-The sample database is the exactly
+The demo database is the exactly
 what you would get if you ran `python manage.py migrate`.
 
-Restore the sample data instead migrating from a clean database
+Restore the demo data instead migrating from a clean database
 
 .. code-block:: bash
 
@@ -114,7 +114,7 @@ Restore the sample data instead migrating from a clean database
 
 Note
     Running `migrate` on an empty database takes more than 30 min. If you do try to run `migrate` instead of
-    restoring the sample data, in addition to the time it takes, you will run into a few simple problems with
+    restoring the demo data, in addition to the time it takes, you will run into a few simple problems with
     the `data` migrations. See the note on `running migrations on an empty database` in **Troubleshooting** below.
 
 Now that our database has the required data schema, we need to run the post-migrate signals. To do this we just
