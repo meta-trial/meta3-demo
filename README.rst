@@ -98,7 +98,11 @@ Note
     The system encrypts sensitive data (personally identifiable information or PII) using django-crypto-fields_. The first time you run
     ``manage.py``, django-crypto-fields_ looks for the keys. If they do not exist, it creates them. 
 
-Now go back and edit the environment file (.env). Change ``DJANGO_AUTO_CREATE_KEYS`` to False
+
+Now go back and edit the working copy of your environment file ``.env``. 
+
+
+Change ``DJANGO_AUTO_CREATE_KEYS`` to False
 
 .. code-block:: bash
 
@@ -132,7 +136,7 @@ Note
 
 Now that our database has the required data schema, we need to run the post-migrate signals_ to populate some static data. But this does not take long. 
 
-To do this we just run the `migrate` command.
+To do this, run the ``migrate`` command.
 
 .. code-block:: bash
 
@@ -140,7 +144,7 @@ To do this we just run the `migrate` command.
     python manage.py migrate
 
 
-Next, import the list of holidays that will be used when scheduling appointments.
+Next, import the list of ``holidays`` to be used when scheduling appointments.
 
 .. code-block:: bash
 
@@ -153,7 +157,7 @@ Next, create a user. Do this from the command line using the createsuperuser_ co
   python manage.py createsuperuser
 
 Important
-    The new user you just created is a ``superuser``. Once logged in you need to remove the superuser status for
+    The new user you just created is a ``superuser``. Once logged in you will remove the superuser status for
     this account.
 
 Now start up the test server using the runserver_ command
@@ -171,9 +175,13 @@ Open your browser and point it to
 
 You should see the login screen for the META3_ trial running at `Temeke Hospital`_ in Tanzania.
 
-Type in the credentials of the ``superuser`` account you just created.
+Type in the credentials of the ``superuser`` account you created above.
 
-Once logged in, go to your user account and edit the permissions on your account. You can use the link at the top right corner.
+Now that you are logged in, let's make some necessary changes to your account.
+
+Go to your user account. You can use the user name link at the top right corner of the page.
+
+Follow these steps to configure a working account with rights to create new users and rights to add, update and delete clinical data.
 
 * Under the section **Personal Details**, fill in your name and email.
 * Under the section **Permissions**, uncheck *Superuser status*.
@@ -182,11 +190,12 @@ Once logged in, go to your user account and edit the permissions on your account
     * Account Manager
     * Staff
     * Clinician Super
+
 * Click SAVE at the bottom of the form 
 
 Now you are ready to screen your first participant!
 
-Click `Home` on breadcrumbs to the left on the top bar to get started.
+Click ``Home`` on the breadcrumbs at the left on the top bar to get started.
 
 
 Troubleshooting
