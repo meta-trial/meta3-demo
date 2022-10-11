@@ -165,6 +165,8 @@ Once logged in, go to your user account and edit the permissions on your account
     * Staff
     * Clinician Super
 
+Click `Home` on breadcrumbs to the left on the top bar.
+
 Now you are ready to screen your first participant.
 
 
