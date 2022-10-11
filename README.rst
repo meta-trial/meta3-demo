@@ -36,13 +36,12 @@ Create a working folder and clone the repo
 
 .. code-block:: bash
 
-  mkdir -p ~/projects/ && \
+  mkdir ~/projects && \
   cd ~/projects && \
-  git clone https://github.com/meta-trial/meta3-sample.git && \
-  cd ~/projects/meta3-sample
+  git clone https://github.com/meta-trial/meta3-sample.git
 
 
-Create a conda environment named "meta3_sample" and activate
+Create a conda environment named "meta3_sample" and activate it
 
 .. code-block:: bash
 
@@ -105,9 +104,10 @@ Restore the sample data instead migrating from a clean database
 
 .. code-block:: bash
 
-    cd ~/project/meta3-sample/sample_data && \
-    tar xczf meta3_sample.sql.tar.gz && \
-    mysql met3_sample < meta3_sample.sql
+    cd ~/projects/meta3-sample/sample_data && \
+    tar xzf meta3_sample.sql.tar.gz && \
+    mysql meta3_sample < meta3_sample.sql && \
+    cd ~/projects/meta3-sample/
 
 Note
     Running `migrate` on an empty database takes more than 30 min. If you do try to run `migrate` instead of
@@ -164,6 +164,8 @@ Once logged in, go to your user account and edit the permissions on your account
     * Account Manager
     * Staff
     * Clinician Super
+
+Click `Home` on breadcrumbs to the left on the top bar.
 
 Now you are ready to screen your first participant.
 
