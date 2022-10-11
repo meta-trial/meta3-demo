@@ -23,19 +23,22 @@ https://www.djangoproject.com
 Installation
 ------------
 
-You'll need `mysql` and `miniconda`.
+You'll need setup `mysql` and `miniconda` on your local machine.
 
 Get miniconda here
     https://docs.conda.io/en/latest/miniconda.html
 
-Create the database
+
+Now that `mysql` and `miniconda` are install on your local machine, let's get started.
+
+First, create the demo database
 
 .. code-block:: bash
 
   mysql -Bse 'create database meta3_demo character set utf8;'
 
 
-Create a working folder and clone the repo
+Create a project folder and clone the repo into it
 
 .. code-block:: bash
 
@@ -44,7 +47,7 @@ Create a working folder and clone the repo
   git clone https://github.com/meta-trial/meta3-demo.git
 
 
-Create a conda environment named "meta3_demo" and activate it
+Create a `conda` environment named "meta3_demo" and activate it
 
 .. code-block:: bash
 
@@ -52,30 +55,36 @@ Create a conda environment named "meta3_demo" and activate it
   conda activate meta3_demo
 
 
-With the conda environment activated, install the meta-edc application
+With the conda environment activated, install the `meta-edc` python package
 
 .. code-block:: bash
 
   pip install meta-edc
 
 
-The application is now installed, but there is more to do.
+Now that the application is installed, we need to make some changes to the configuration. 
 
-We need to make some changes to the configuration. Sensitive config values are stored in the environment (see https://12factor.net) by using an `.env` and `environ`. A sample environment file has been provided. Copy the sample environment file to a working copy
+Copy the sample environment file to a working copy
 
 .. code-block:: bash
 
     cd ~/clinicedc/meta3-demo && cp .env-sample .env
 
 
-Edit the working copy of the environment file (.env). At the top of the file you will find ``DATABASE_URL``. Change the value for ``DATABASE_URL`` to include your mysql user and password. The mysql account will need root or root-like permissions. Since this is a test server running locally, just use `root`.
+Note
+    Sensitive config values are stored in the environment by using an `.env` file and `environ`. (see also see https://12factor.net)
+
+Next, edit your working copy of the environment file (.env). Look for ``DATABASE_URL`` at the top of the file. Change the value for ``DATABASE_URL`` to include your mysql user and password. The mysql account will need root or root-like permissions. Since this is a test server running locally, just use `root`.
 
 .. code-block:: bash
 
+  # find this line
   DATABASE_URL=mysql://<username>:<password>@127.0.0.1:3306/meta3_demo
+  
+  # and change with your details, for example
+  DATABASE_URL=mysql://root:dumela@127.0.0.1:3306/meta3_demo
 
-
-Next we need to create the keys used for data encryption. The system encrypts sensitive data (personally identifiable information or PII) using django-crypto-fields.
+Next we need to create the keys used for data encryption. 
 
 Run manage.py for the first time to create the encryption keys
 
@@ -83,27 +92,27 @@ Run manage.py for the first time to create the encryption keys
 
   python manage.py check
 
-Go back and edit the environment file (.env). Change DJANGO_AUTO_CREATE_KEYS to False
+Note
+    The system encrypts sensitive data (personally identifiable information or PII) using `django-crypto-fields`. The first time you run
+    `manage.py`, `django-crypto-fields` looks for the keys. If they do not exists, it creates them. 
+
+Now go back and edit the environment file (.env). Change DJANGO_AUTO_CREATE_KEYS to False
 
 .. code-block:: bash
 
     DJANGO_AUTO_CREATE_KEYS=False
 
-Run manage.py `check` again. You should see a final message "System check identified 3 issues (1 silenced)". For the test server, you may ignore these warnings.
+Run manage.py `check` again. You should see a final message "System check identified 3 issues (1 silenced)". Since this is a test server, you may ignore these warnings.
 
 .. code-block:: bash
 
   python manage.py check
 
-Now you are ready to prepare the database.
+Now you are ready to prepare the database that you created earlier.
 
-For now we will just restore the demo data provided in this repo. (Of course, you may run `python manage.py migrate`
-but see the note below before going that route.)
+To save time, we will just restore the demo data provided in this repo. The demo data is an empty database that is the exactly what you would get if you ran the 'migrate` command.
 
-The demo database is the exactly
-what you would get if you ran `python manage.py migrate`.
-
-Restore the demo data instead migrating from a clean database
+Restore the demo data
 
 .. code-block:: bash
 
@@ -113,17 +122,17 @@ Restore the demo data instead migrating from a clean database
     cd ~/clinicedc/meta3-demo/
 
 Note
-    Running `migrate` on an empty database takes more than 30 min. If you do try to run `migrate` instead of
-    restoring the demo data, in addition to the time it takes, you will run into a few simple problems with
-    the `data` migrations. See the note on `running migrations on an empty database` in **Troubleshooting** below.
+    There are a few caveats to migrating your own database instead of using the demo data. Running `migrate` on an empty database takes more than 30 min. Also, you will run into a few simple problems with the `data` migrations. See the note on`running migrations on an empty database` in **Troubleshooting** below.
 
-Now that our database has the required data schema, we need to run the post-migrate signals. To do this we just
-run the `migrate` command.
+Now that our database has the required data schema, we need to run the post-migrate signals to populate some static data. But this does not take long. 
+
+To do this we just run the `migrate` command.
 
 .. code-block:: bash
 
     # run migrate to trigger the post-migrate signals
     python manage.py migrate
+
 
 Next, import the list of holidays that will be used when scheduling appointments.
 
