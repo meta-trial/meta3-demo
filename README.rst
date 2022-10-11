@@ -23,7 +23,10 @@ https://www.djangoproject.com
 Installation
 ------------
 
-You'll need `mysql` and `conda`.
+You'll need `mysql` and `miniconda`.
+
+Get miniconda here
+    https://docs.conda.io/en/latest/miniconda.html
 
 Create the database
 
@@ -37,7 +40,7 @@ Create a working folder and clone the repo
 .. code-block:: bash
 
   mkdir ~/clinicedc && \
-  cd ~/projects && \
+  cd ~/clinicedc && \
   git clone https://github.com/meta-trial/meta3-sample.git
 
 
@@ -201,7 +204,7 @@ fake the failed `data` migration, and continue.
 
     # restart migrate
     python manage.py migrate
-    
+
 Removing the demo when you are done
 -----------------------------------
 
@@ -210,7 +213,7 @@ drop the database::
   mysql -Bse "drop database meta3-sample;"
 
 deactivate the conda environment::
-  
+
   conda deactivate
 
 remove the conda environment::
