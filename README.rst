@@ -257,4 +257,4 @@ Finally, delete the `clinicedc` folder.
 
 .. _createsuperuser: https://docs.djangoproject.com/en/4.1/ref/django-admin/#createsuperuser
 
-.. _Temeke Hospital: https://www.google.com/maps/dir/30.5463296,-97.6027648/temeke+hospital/@0.7551523,-115.5662203,3z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x185c4bef1f19f4a5:0xc9cebd42ac07b43!2m2!1d39.2629046!2d-6.8598127
+.. _Temeke Hospital: https://www.google.com/maps/dir/Austin,+TX/temeke+hospital/@9.0663451,-68.8597944,3z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x8644b599a0cc032f:0x5d9b464bd469d57a!2m2!1d-97.7430608!2d30.267153!1m5!1m1!1s0x185c4bef1f19f4a5:0xc9cebd42ac07b43!2m2!1d39.2629046!2d-6.8598127
