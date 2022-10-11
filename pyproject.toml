@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "_version.py"
+
+[tool.black]
+line-length = 95
+target-version = ["py39"]
+extend-exclude = '''^(.*\/)*\b(migrations)\b($|\/.*$)'''
+
+[tool.isort]
+profile = "black"
+py_version = "39"
+skip = [".tox", ".eggs", "migrations"]

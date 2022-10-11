@@ -1,5 +1,4 @@
 import os
-import pdb
 import sys
 from pathlib import Path
 
@@ -273,9 +272,7 @@ PASSWORD_HASHERS = [
 ]
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
         "OPTIONS": {"min_length": 20},
@@ -321,9 +318,7 @@ EDC_APPOINTMENT_APPT_REASON_CHOICES = (
 EXPORT_FILENAME_TIMESTAMP_FORMAT = "%Y%m%d"
 
 # django_revision
-with open(
-    os.path.join(os.path.dirname(os.path.join(BASE_DIR, APP_NAME)), "VERSION")
-) as f:
+with open(os.path.join(os.path.dirname(os.path.join(BASE_DIR, APP_NAME)), "VERSION")) as f:
     REVISION = f.read().strip()
 
 # EDC_AUTH_SKIP_AUTH_UPDATER = True
@@ -371,15 +366,13 @@ LAB_DASHBOARD_BASE_TEMPLATES = env.dict("DJANGO_LAB_DASHBOARD_BASE_TEMPLATES")
 LAB_DASHBOARD_URL_NAMES = env.dict("DJANGO_LAB_DASHBOARD_URL_NAMES")
 
 # edc-diagnosis
-EDC_DX_LABELS = dict(
-    hiv="HIV", dm="Diabetes", htn="Hypertension", chol="High Cholesterol"
-)
+EDC_DX_LABELS = dict(hiv="HIV", dm="Diabetes", htn="Hypertension", chol="High Cholesterol")
 
 # edc-egfr
 EDC_EGFR_DROP_NOTIFICATION_MODEL = "meta_subject.egfrdropnotification"
 
-# edc_facility
-HOLIDAY_FILE = env.str("DJANGO_HOLIDAY_FILE")
+# edc_facility)
+HOLIDAY_FILE = os.path.expanduser(env.str("DJANGO_HOLIDAY_FILE"))
 
 # edc-label
 EDC_LABEL_BROWSER_PRINT_PAGE_AUTO_BACK = env("EDC_LABEL_BROWSER_PRINT_PAGE_AUTO_BACK")

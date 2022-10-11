@@ -53,9 +53,9 @@ Create a conda env named "meta3_sample" and activate
 Install meta-edc
 
 .. code-block:: bash
-  
+
   pip install meta-edc
-    
+
 Copy the .env file
 
 .. code-block:: bash
