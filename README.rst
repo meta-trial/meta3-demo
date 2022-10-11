@@ -36,10 +36,9 @@ Create a working folder and clone the repo
 
 .. code-block:: bash
 
-  mkdir -p ~/projects/ && \
+  mkdir ~/projects && \
   cd ~/projects && \
-  git clone https://github.com/meta-trial/meta3-sample.git && \
-  cd ~/projects/meta3-sample
+  git clone https://github.com/meta-trial/meta3-sample.git
 
 
 Create a conda environment named "meta3_sample" and activate
