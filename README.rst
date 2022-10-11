@@ -178,10 +178,11 @@ Once logged in, go to your user account and edit the permissions on your account
     * Account Manager
     * Staff
     * Clinician Super
+* Click SAVE at the bottom of the form 
 
-Click `Home` on breadcrumbs to the left on the top bar.
+Now you are ready to screen your first participant!
 
-Now you are ready to screen your first participant.
+Click `Home` on breadcrumbs to the left on the top bar to get started.
 
 
 Troubleshooting
