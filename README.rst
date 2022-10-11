@@ -36,7 +36,7 @@ Create a working folder and clone the repo
 
 .. code-block:: bash
 
-  mkdir ~/projects && \
+  mkdir ~/clinicedc && \
   cd ~/projects && \
   git clone https://github.com/meta-trial/meta3-sample.git
 
@@ -62,7 +62,7 @@ We need to make some changes to the configuration. Sensitive config values are s
 
 .. code-block:: bash
 
-    cd ~/projects/meta3-sample && cp .env-sample .env
+    cd ~/clinicedc/meta3-sample && cp .env-sample .env
 
 
 Edit the working copy of the environment file (.env). At the top of the file you will find ``DATABASE_URL``. Change the value for ``DATABASE_URL`` to include your mysql user and password. The mysql account will need root or root-like permissions. Since this is a test server running locally, just use `root`.
@@ -104,10 +104,10 @@ Restore the sample data instead migrating from a clean database
 
 .. code-block:: bash
 
-    cd ~/projects/meta3-sample/sample_data && \
+    cd ~/clinicedc/meta3-sample/sample_data && \
     tar xzf meta3_sample.sql.tar.gz && \
     mysql meta3_sample < meta3_sample.sql && \
-    cd ~/projects/meta3-sample/
+    cd ~/clinicedc/meta3-sample/
 
 Note
     Running `migrate` on an empty database takes more than 30 min. If you do try to run `migrate` instead of
@@ -217,7 +217,7 @@ remove the conda environment::
 
   conda env remove -n meta3-sample
 
-Finally, delete the projects folder.
+Finally, delete the `clinicedc` folder.
 
 
 .. |pypi| image:: https://img.shields.io/pypi/v/meta3-sample.svg
