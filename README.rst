@@ -44,12 +44,12 @@ Create a working folder and clone the repo
   git clone https://github.com/meta-trial/meta3-sample.git
 
 
-Create a conda environment named "meta3_sample" and activate it
+Create a conda environment named "meta3_demo" and activate it
 
 .. code-block:: bash
 
-  conda create -n meta3_sample python=3.10 && \
-  conda activate meta3_sample
+  conda create -n meta3_demo python=3.10 && \
+  conda activate meta3_demo
 
 
 With the conda environment activated, install the meta-edc application
@@ -65,14 +65,14 @@ We need to make some changes to the configuration. Sensitive config values are s
 
 .. code-block:: bash
 
-    cd ~/clinicedc/meta3-sample && cp .env-sample .env
+    cd ~/clinicedc/meta3-demo && cp .env-sample .env
 
 
 Edit the working copy of the environment file (.env). At the top of the file you will find ``DATABASE_URL``. Change the value for ``DATABASE_URL`` to include your mysql user and password. The mysql account will need root or root-like permissions. Since this is a test server running locally, just use `root`.
 
 .. code-block:: bash
 
-  DATABASE_URL=mysql://<username>:<password>@127.0.0.1:3306/meta3_sample
+  DATABASE_URL=mysql://<username>:<password>@127.0.0.1:3306/meta3_demo
 
 
 Next we need to create the keys used for data encryption. The system encrypts sensitive data (personally identifiable information or PII) using django-crypto-fields.
@@ -107,10 +107,10 @@ Restore the sample data instead migrating from a clean database
 
 .. code-block:: bash
 
-    cd ~/clinicedc/meta3-sample/sample_data && \
-    tar xzf meta3_sample.sql.tar.gz && \
-    mysql meta3_sample < meta3_sample.sql && \
-    cd ~/clinicedc/meta3-sample/
+    cd ~/clinicedc/meta3-demo/demo_data && \
+    tar xzf meta3_demo.sql.tar.gz && \
+    mysql meta3_demo < meta3_demo.sql && \
+    cd ~/clinicedc/meta3-demo/
 
 Note
     Running `migrate` on an empty database takes more than 30 min. If you do try to run `migrate` instead of
@@ -210,7 +210,7 @@ Removing the demo when you are done
 
 drop the database::
 
-  mysql -Bse "drop database meta3-sample;"
+  mysql -Bse "drop database meta3_demo;"
 
 deactivate the conda environment::
 
@@ -218,10 +218,10 @@ deactivate the conda environment::
 
 remove the conda environment::
 
-  conda env remove -n meta3-sample
+  conda env remove -n meta3_demo
 
 Finally, delete the `clinicedc` folder.
 
 
-.. |pypi| image:: https://img.shields.io/pypi/v/meta3-sample.svg
-    :target: https://pypi.python.org/pypi/meta3-sample
+.. |pypi| image:: https://img.shields.io/pypi/v/meta3-demo.svg
+    :target: https://pypi.python.org/pypi/meta3-demo
