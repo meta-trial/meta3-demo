@@ -49,7 +49,7 @@ Create a conda environment named "meta3_sample" and activate it
   conda activate meta3_sample
 
 
-Install the meta-edc application
+With the conda environment activated, install the meta-edc application
 
 .. code-block:: bash
 
@@ -201,6 +201,23 @@ fake the failed `data` migration, and continue.
 
     # restart migrate
     python manage.py migrate
+    
+Removing the demo when you are done
+-----------------------------------
+
+drop the database::
+
+  mysql -Bse "drop database meta3-sample;"
+
+deactivate the conda environment::
+  
+  conda deactivate
+
+remove the conda environment::
+
+  conda env remove -n meta3-sample
+
+Finally, delete the projects folder.
 
 
 .. |pypi| image:: https://img.shields.io/pypi/v/meta3-sample.svg
