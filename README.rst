@@ -185,6 +185,10 @@ Follow these steps to configure a working account with rights to create new user
 
 * Under the section **Personal Details**, fill in your name and email.
 * Under the section **Permissions**, uncheck *Superuser status*.
+* In the middle of section **User Profile** you will see `Sites`. Add yourself to the following site:
+
+    * temeke.tz.meta3.clinicedc.org
+
 * At the bottom of section **User Profile** you will see `Roles`. Add yourself to the following roles:
 
     * Account Manager
