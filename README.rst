@@ -22,6 +22,8 @@ https://www.djangoproject.com
 
 https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-trials-guidance-documents
 
+https://www.fda.gov/regulatory-information/search-fda-guidance-documents/oversight-clinical-investigations-risk-based-approach-monitoring
+
 Installation
 ------------
 
