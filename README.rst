@@ -63,7 +63,7 @@ With the ``conda`` environment activated, install the ``meta-edc`` python packag
 
 .. code-block:: bash
 
-  pip install meta-edc
+  pip install meta-edc==0.2.33
 
 
 Now that the application is installed, we need to make some changes to the configuration. 
