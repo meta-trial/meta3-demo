@@ -20,9 +20,9 @@ https://github.com/clinicedc
 
 https://www.djangoproject.com
 
-https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-trials-guidance-documents
-
 https://www.fda.gov/regulatory-information/search-fda-guidance-documents/oversight-clinical-investigations-risk-based-approach-monitoring
+
+https://www.fda.gov/science-research/clinical-trials-and-human-subject-protection/clinical-trials-guidance-documents
 
 Installation
 ------------
